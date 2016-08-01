@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="../DomManager/DomManager.js" type="text/javascript"></script>
+        <script src="../DomManager/DomAnimator.js" type="text/javascript"></script>
+        
+        <style>
+            .anime1{
+                transition: all 600ms;
+            }
+            .anime1-animate{
+                background: red;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <button onclick="anime01(this)">anime01</button>
+        <div id="anime1" class="anime1">Animaçao 01</div>
+        <script>
+            function anime01(bt){
+                bt.setAttribute('disabled', 'disabled');
+                DomManager.Animator.addClass(document.querySelector('#anime1'), 'anime1-animate', function(){
+                    
+                    DomManager.Animator.removeClass(document.querySelector('#anime1'), 'anime1-animate', function(){
+                        bt.removeAttribute('disabled');
+                    });
+
+                });
+            }
+        </script>
+        
+    </body>
+</html>
